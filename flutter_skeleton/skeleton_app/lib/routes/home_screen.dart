@@ -14,23 +14,6 @@ be needed. */
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
-      ),
-      home: Scaffold(
-        body: ListView(children: [
-          Home(),
-        ]),
-      ),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -141,33 +124,34 @@ class Home extends StatelessWidget {
                 top: 12,
                 child: GestureDetector(
                   onTap: () {
-                  Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()), //To be replaced by settings page location?? None currently.
-                    
-                );
-              },
-              child: Container(
-                  width: 47,
-                  height: 47,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://cdn.discordapp.com/attachments/274783661671317505/1174855118391349311/image.png?ex=65691c17&is=6556a717&hm=efe5b4ef0826fe73d22ddb8ab08e78777d90642c2d3c5aa4df1972ea08d4a636&"),
-                      fit: BoxFit.fill,
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              HomeScreen()), //To be replaced by settings page location?? None currently.
+                    );
+                  },
+                  child: Container(
+                    width: 47,
+                    height: 47,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            "https://cdn.discordapp.com/attachments/274783661671317505/1174855118391349311/image.png?ex=65691c17&is=6556a717&hm=efe5b4ef0826fe73d22ddb8ab08e78777d90642c2d3c5aa4df1972ea08d4a636&"),
+                        fit: BoxFit.fill,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x3F000000),
+                          blurRadius: 10,
+                          offset: Offset(0, 1),
+                          spreadRadius: 1,
+                        )
+                      ],
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 10,
-                        offset: Offset(0, 1),
-                        spreadRadius: 1,
-                      )
-                    ],
                   ),
                 ),
               ),
-            ),
               Positioned(
                 left: 24,
                 top: 132,
